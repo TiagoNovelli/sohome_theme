@@ -3,42 +3,72 @@
 // =============================================================
 
 // ── Fundo e tema do menu de apps (web_responsive) ─────────────
-// Sobrescreve as variáveis CSS independente do data-theme
 :root .o_grid_apps_menu {
-    --app-menu-background: linear-gradient(160deg, #2e2820 0%, #484c40 60%, #6b6d5a 100%);
+    --app-menu-background: transparent;
     --app-menu-text-color: #dcd8d3;
-    --app-menu-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    --app-menu-text-shadow: none;
     --app-menu-hover-background: rgba(255, 255, 255, 0.12);
 }
 
-// Ícones dos apps com fundo branco mais destacado
+// Container principal: transparente para o banner aparecer
+.app-menu-container {
+    background: transparent !important;
+    position: relative !important;
+}
+
+// Apps e barra de busca ficam por cima do banner
+.o-app-menu-list,
+.has-results ~ .o-app-menu-list {
+    position: relative;
+    z-index: 1;
+}
+
+[class*="searchbar"],
+[class*="SearchBar"],
+[class*="search_bar"] {
+    position: relative;
+    z-index: 1;
+}
+
+// Ícones dos apps
 .o-app-menu-item__icon {
     background-color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28) !important;
     border-radius: 14px !important;
 }
 
+// Nomes dos apps — sem sombra
 .o-app-menu-item__name {
     color: #dcd8d3 !important;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+    text-shadow: none !important;
 }
 
-// ── Banner da tela inicial ────────────────────────────────────
+// ── Banner como fundo do menu de apps ─────────────────────────
 .sh_banner {
-    width: 100%;
-    display: flex;
+    // Cobre todo o fundo do container, apps ficam por cima
+    position: absolute !important;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: flex !important;
     flex-direction: column;
-    margin-bottom: 32px;
-    border-radius: 12px;
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     overflow: hidden;
-    box-shadow: 0 4px 24px rgba(73, 64, 56, 0.18);
 }
 
 .sh_banner_hero {
-    background: linear-gradient(135deg, #3a3d32 0%, #484c40 55%, #6b6d5a 100%);
+    background: linear-gradient(160deg, #2e2820 0%, #484c40 60%, #6b6d5a 100%);
+    flex: 1;
     padding: 52px 48px 44px;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     &::before {
         content: '';

@@ -2,6 +2,27 @@
 // Sohome Theme — estilos complementares
 // =============================================================
 
+// ── Fundo e tema do menu de apps (web_responsive) ─────────────
+// Sobrescreve as variáveis CSS independente do data-theme
+:root .o_grid_apps_menu {
+    --app-menu-background: linear-gradient(160deg, #2e2820 0%, #484c40 60%, #6b6d5a 100%);
+    --app-menu-text-color: #dcd8d3;
+    --app-menu-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    --app-menu-hover-background: rgba(255, 255, 255, 0.12);
+}
+
+// Ícones dos apps com fundo branco mais destacado
+.o-app-menu-item__icon {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 14px !important;
+}
+
+.o-app-menu-item__name {
+    color: #dcd8d3 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
 // ── Banner da tela inicial ────────────────────────────────────
 .sh_banner {
     width: 100%;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-    <t t-inherit="web.HomeMenu" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('o_apps')]" position="before">
+    <t t-inherit="web_responsive.AppsMenu" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-app-menu-list')]" position="before">
             <div class="sh_banner">
                 <div class="sh_banner_hero">
                     <div class="sh_banner_brand">SOHOME</div>

@@ -8,6 +8,7 @@
             ('prepend', 'sohome_theme/static/src/scss/primary_variables.scss'),
         ],
         'web.assets_backend': [
+            'sohome_theme/static/src/xml/home_menu_banner.xml',
             'sohome_theme/static/src/scss/styles.scss',
         ],
     },

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.HomeMenu" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_apps')]" position="before">
+            <div class="sh_banner">
+                <div class="sh_banner_hero">
+                    <div class="sh_banner_brand">SOHOME</div>
+                    <div class="sh_banner_divider"/>
+                    <h1 class="sh_banner_title">CRM ODOO</h1>
+                    <p class="sh_banner_subtitle">ESTRATÉGIA COMERCIAL E TRANSFORMAÇÃO DIGITAL</p>
+                    <p class="sh_banner_tagline">Integração · Inteligência · Resultado</p>
+                </div>
+                <div class="sh_banner_footer">
+                    <div class="sh_banner_footer_item">
+                        <span class="sh_banner_footer_icon">◎</span>
+                        <span class="sh_banner_footer_title">FOCO</span>
+                        <span class="sh_banner_footer_text">Organizar, Automatizar e Acelerar Resultados</span>
+                    </div>
+                    <div class="sh_banner_footer_sep"/>
+                    <div class="sh_banner_footer_item">
+                        <span class="sh_banner_footer_icon">↗</span>
+                        <span class="sh_banner_footer_title">ESTRATÉGIA</span>
+                        <span class="sh_banner_footer_text">Processos Inteligentes para Escalar o Comercial</span>
+                    </div>
+                    <div class="sh_banner_footer_sep"/>
+                    <div class="sh_banner_footer_item">
+                        <span class="sh_banner_footer_icon">⟳</span>
+                        <span class="sh_banner_footer_title">RESULTADOS</span>
+                        <span class="sh_banner_footer_text">Mais Eficiência, Mais Negócios</span>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

@@ -2,6 +2,132 @@
 // Sohome Theme — estilos complementares
 // =============================================================
 
+// ── Banner da tela inicial ────────────────────────────────────
+.sh_banner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(73, 64, 56, 0.18);
+}
+
+.sh_banner_hero {
+    background: linear-gradient(135deg, #3a3d32 0%, #484c40 55%, #6b6d5a 100%);
+    padding: 52px 48px 44px;
+    text-align: center;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,0.015) 0px,
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 24px
+        );
+        pointer-events: none;
+    }
+}
+
+.sh_banner_brand {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 10px;
+    color: #dcd8d3;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.sh_banner_divider {
+    width: 48px;
+    height: 2px;
+    background: #997d5c;
+    margin: 0 auto 20px;
+}
+
+.sh_banner_title {
+    font-size: 52px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin: 0 0 14px;
+    line-height: 1.1;
+}
+
+.sh_banner_subtitle {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #997d5c;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+}
+
+.sh_banner_tagline {
+    font-size: 15px;
+    color: rgba(220, 216, 211, 0.75);
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.sh_banner_footer {
+    background: #dcd8d3;
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+}
+
+.sh_banner_footer_item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 20px 24px;
+    text-align: center;
+}
+
+.sh_banner_footer_icon {
+    font-size: 22px;
+    color: #997d5c;
+    line-height: 1;
+    margin-bottom: 4px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid #997d5c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sh_banner_footer_title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #494038;
+    text-transform: uppercase;
+}
+
+.sh_banner_footer_text {
+    font-size: 12px;
+    color: #84867b;
+    line-height: 1.4;
+}
+
+.sh_banner_footer_sep {
+    width: 1px;
+    background: #c5c0b3;
+    margin: 16px 0;
+}
+
 // ── Navbar superior ──────────────────────────────────────────
 .o_main_navbar {
     background-color: #494038 !important;

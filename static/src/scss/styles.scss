@@ -1,0 +1,214 @@
+// =============================================================
+// Sohome Theme — estilos complementares
+// =============================================================
+
+// ── Navbar superior ──────────────────────────────────────────
+.o_main_navbar {
+    background-color: #494038 !important;
+    border-bottom: 1px solid #5a4f43;
+
+    .o_menu_brand,
+    .o_nav_entry,
+    .o_menu_sections > li > a {
+        color: #dcd8d3 !important;
+    }
+
+    .o_menu_sections > li > a:hover,
+    .o_nav_entry:hover {
+        color: #ffffff !important;
+        background-color: #5a4f43 !important;
+    }
+
+    .o_menu_brand:hover {
+        color: #997d5c !important;
+    }
+}
+
+// ── Botões primários ─────────────────────────────────────────
+.btn-primary {
+    background-color: #484c40 !important;
+    border-color: #484c40 !important;
+    color: #ffffff !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: #353830 !important;
+        border-color: #353830 !important;
+    }
+}
+
+.btn-secondary {
+    background-color: #ede8e0 !important;
+    border-color: #c5c0b3 !important;
+    color: #494038 !important;
+
+    &:hover {
+        background-color: #dcd8d3 !important;
+        border-color: #84867b !important;
+    }
+}
+
+// ── Links ────────────────────────────────────────────────────
+a {
+    color: #484c40;
+
+    &:hover {
+        color: #997d5c;
+    }
+}
+
+// ── Menu de apps (home) ───────────────────────────────────────
+.o_home_menu {
+    background-color: #f5f1ec;
+}
+
+.o_app {
+    border-radius: 12px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(73, 64, 56, 0.15);
+    }
+
+    .o_app_name {
+        color: #494038;
+    }
+}
+
+// ── Fundo principal ───────────────────────────────────────────
+.o_action_manager,
+.o_view_controller {
+    background-color: #f5f1ec;
+}
+
+// ── Formulários ──────────────────────────────────────────────
+.o_form_view {
+    background-color: #ffffff;
+}
+
+.o_form_view .o_form_sheet {
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(73, 64, 56, 0.08);
+}
+
+.o_field_widget input,
+.o_field_widget textarea,
+.form-control,
+.form-select {
+    border-color: #c5c0b3;
+    border-radius: 6px;
+    background-color: #ffffff;
+
+    &:focus {
+        border-color: #484c40;
+        box-shadow: 0 0 0 2px rgba(72, 76, 64, 0.15);
+    }
+}
+
+// ── Listas ────────────────────────────────────────────────────
+.o_list_view thead th {
+    background-color: #ede8e0;
+    color: #494038;
+    border-bottom: 2px solid #c5c0b3;
+    font-weight: 600;
+}
+
+.o_data_row:hover > td {
+    background-color: #f5f1ec !important;
+}
+
+.o_list_view .o_data_row.o_selected_row > td {
+    background-color: rgba(72, 76, 64, 0.07) !important;
+}
+
+// ── Kanban ────────────────────────────────────────────────────
+.o_kanban_record {
+    border-radius: 10px !important;
+    border: 1px solid #dcd8d3 !important;
+    background-color: #ffffff;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 4px 14px rgba(73, 64, 56, 0.12);
+    }
+}
+
+.o_kanban_header .o_column_title {
+    color: #494038;
+    font-weight: 600;
+}
+
+// ── Badges e tags ─────────────────────────────────────────────
+.badge.bg-primary,
+.badge-primary {
+    background-color: #484c40 !important;
+}
+
+.badge.bg-secondary,
+.badge-secondary {
+    background-color: #997d5c !important;
+    color: #ffffff !important;
+}
+
+.o_tag {
+    border-radius: 4px;
+}
+
+// ── Títulos ───────────────────────────────────────────────────
+h1, h2, h3, h4 {
+    color: #494038;
+}
+
+// ── Sidebar / breadcrumb ──────────────────────────────────────
+.o_breadcrumb .o_back_button,
+.o_breadcrumb .active {
+    color: #494038;
+}
+
+.o_breadcrumb .o_back_button:hover {
+    color: #997d5c;
+}
+
+// ── Tabs / notebook ───────────────────────────────────────────
+.nav-tabs .nav-link.active {
+    color: #484c40;
+    border-bottom-color: #484c40;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #997d5c;
+}
+
+// ── Progress / status bars ────────────────────────────────────
+.o_statusbar_status button.o_arrow_button.btn-primary,
+.o_statusbar_status .o_arrow_button.active {
+    background-color: #484c40 !important;
+    border-color: #353830 !important;
+}
+
+// ── Separadores e divisores ───────────────────────────────────
+hr,
+.o_separator {
+    border-color: #dcd8d3;
+}
+
+// ── Sidebar de configuração ───────────────────────────────────
+.o_setting_box .o_setting_left_pane {
+    border-right-color: #dcd8d3;
+}
+
+// ── Alertas e callouts ────────────────────────────────────────
+.alert-info {
+    background-color: #ede8e0;
+    border-color: #c5c0b3;
+    color: #494038;
+}
+
+.alert-success {
+    background-color: rgba(72, 76, 64, 0.1);
+    border-color: #484c40;
+    color: #353830;
+}

@@ -1,0 +1,33 @@
+// =============================================================
+// Sohome Theme — variáveis primárias
+// Paleta principal: #000000 · #84867b · #c5c0b3
+// Paleta auxiliar:  #211f1e · #484c40 · #878264 · #909d9c
+//                   #494038 · #997d5c · #dcd8d3
+// =============================================================
+
+// Marca
+$o-brand-primary:           #484c40;   // verde oliva escuro — botões, links, active
+$o-brand-secondary:         #997d5c;   // dourado-terra — acentos secundários
+$o-brand-odoo:              #484c40;
+
+// Escala de cinza remapeada para tons quentes da paleta Sohome
+$o-gray-100:                #f5f1ec;   // creme quase branco
+$o-gray-200:                #ede8e0;   // creme claro
+$o-gray-300:                #dcd8d3;   // bege claro (paleta auxiliar)
+$o-gray-400:                #c5c0b3;   // bege médio (paleta principal)
+$o-gray-500:                #84867b;   // cinza-verde médio (paleta principal)
+$o-gray-600:                #6b6d63;
+$o-gray-700:                #878264;   // oliva médio
+$o-gray-800:                #494038;   // marrom escuro (paleta auxiliar)
+$o-gray-900:                #2e2820;   // marrom muito escuro
+
+// Fundo geral
+$o-body-bg:                 #f5f1ec;
+$o-view-background-color:   #f5f1ec;
+
+// Navbar superior
+$o-navbar-background:       #494038;   // marrom escuro
+$o-navbar-color:            #dcd8d3;   // bege claro sobre marrom
+
+// Destaques
+$o-brand-lightsecondary:    #ede8e0;

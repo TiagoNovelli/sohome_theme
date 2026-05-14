@@ -21,17 +21,28 @@
         background-color: #5a4f43 !important;
     }
 
-    // Systray (usuário, notificações, etc.)
+    // Systray sempre visível (mesmo com apps menu aberto)
     .o_menu_systray {
+        display: flex !important;
         position: relative;
         z-index: 1031;
     }
 
     .o_menu_systray .o_nav_entry,
+    .o_menu_systray .o_user_menu,
     .o_menu_systray button,
-    .o_menu_systray a {
+    .o_menu_systray a,
+    .o_menu_systray i {
         color: #dcd8d3 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
+}
+
+// Garante systray visível quando apps menu está aberto
+.o_apps_menu_opened .o_main_navbar .o_menu_systray {
+    display: flex !important;
+    visibility: visible !important;
 }
 
 // ── Menu de apps — imagem de fundo full ───────────────────────
@@ -42,11 +53,11 @@
 }
 
 .app-menu-container {
-    background-image: url('/sohome_theme/static/src/img/bg_home.jpg') !important; // arquivo: background.png copiado como bg_home.jpg
+    background-image: url('/sohome_theme/static/src/img/bg_home.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
-    position: relative !important;
+    // NÃO sobrescreve position — mantém o position:fixed do web_responsive
 }
 
 // Apps e busca ficam por cima do overlay de texto

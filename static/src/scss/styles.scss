@@ -2,187 +2,12 @@
 // Sohome Theme — estilos complementares
 // =============================================================
 
-// ── Fundo e tema do menu de apps (web_responsive) ─────────────
-:root .o_grid_apps_menu {
-    --app-menu-background: transparent;
-    --app-menu-text-color: #dcd8d3;
-    --app-menu-text-shadow: none;
-    --app-menu-hover-background: rgba(255, 255, 255, 0.12);
-}
-
-// Container principal: transparente para o banner aparecer
-.app-menu-container {
-    background: transparent !important;
-    position: relative !important;
-}
-
-// Apps e barra de busca ficam por cima do banner
-.o-app-menu-list,
-.has-results ~ .o-app-menu-list {
-    position: relative;
-    z-index: 1;
-}
-
-[class*="searchbar"],
-[class*="SearchBar"],
-[class*="search_bar"] {
-    position: relative;
-    z-index: 1;
-}
-
-// Ícones dos apps
-.o-app-menu-item__icon {
-    background-color: #ffffff !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28) !important;
-    border-radius: 14px !important;
-}
-
-// Nomes dos apps — sem sombra
-.o-app-menu-item__name {
-    color: #dcd8d3 !important;
-    text-shadow: none !important;
-}
-
-// ── Banner como fundo do menu de apps ─────────────────────────
-.sh_banner {
-    // Cobre todo o fundo do container, apps ficam por cima
-    position: absolute !important;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    display: flex !important;
-    flex-direction: column;
-    width: 100% !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    overflow: hidden;
-}
-
-.sh_banner_hero {
-    background: linear-gradient(160deg, #2e2820 0%, #484c40 60%, #6b6d5a 100%);
-    flex: 1;
-    padding: 52px 48px 44px;
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: repeating-linear-gradient(
-            45deg,
-            rgba(255,255,255,0.015) 0px,
-            rgba(255,255,255,0.015) 1px,
-            transparent 1px,
-            transparent 24px
-        );
-        pointer-events: none;
-    }
-}
-
-.sh_banner_brand {
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: 10px;
-    color: #dcd8d3;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.sh_banner_divider {
-    width: 48px;
-    height: 2px;
-    background: #997d5c;
-    margin: 0 auto 20px;
-}
-
-.sh_banner_title {
-    font-size: 52px;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 2px;
-    margin: 0 0 14px;
-    line-height: 1.1;
-}
-
-.sh_banner_subtitle {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 3px;
-    color: #997d5c;
-    text-transform: uppercase;
-    margin: 0 0 12px;
-}
-
-.sh_banner_tagline {
-    font-size: 15px;
-    color: rgba(220, 216, 211, 0.75);
-    margin: 0;
-    letter-spacing: 1px;
-}
-
-.sh_banner_footer {
-    background: #dcd8d3;
-    display: flex;
-    align-items: stretch;
-    padding: 0;
-}
-
-.sh_banner_footer_item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 20px 24px;
-    text-align: center;
-}
-
-.sh_banner_footer_icon {
-    font-size: 22px;
-    color: #997d5c;
-    line-height: 1;
-    margin-bottom: 4px;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border: 1.5px solid #997d5c;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sh_banner_footer_title {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #494038;
-    text-transform: uppercase;
-}
-
-.sh_banner_footer_text {
-    font-size: 12px;
-    color: #84867b;
-    line-height: 1.4;
-}
-
-.sh_banner_footer_sep {
-    width: 1px;
-    background: #c5c0b3;
-    margin: 16px 0;
-}
-
-// ── Navbar superior ──────────────────────────────────────────
+// ── Navbar ────────────────────────────────────────────────────
 .o_main_navbar {
     background-color: #494038 !important;
     border-bottom: 1px solid #5a4f43;
+    position: relative;
+    z-index: 1030 !important;  // acima do app-menu-container (z-index:1000)
 
     .o_menu_brand,
     .o_nav_entry,
@@ -196,9 +21,92 @@
         background-color: #5a4f43 !important;
     }
 
-    .o_menu_brand:hover {
-        color: #997d5c !important;
+    // Systray (usuário, notificações, etc.)
+    .o_menu_systray {
+        position: relative;
+        z-index: 1031;
     }
+
+    .o_menu_systray .o_nav_entry,
+    .o_menu_systray button,
+    .o_menu_systray a {
+        color: #dcd8d3 !important;
+    }
+}
+
+// ── Menu de apps — imagem de fundo full ───────────────────────
+:root .o_grid_apps_menu {
+    --app-menu-text-color: #dcd8d3;
+    --app-menu-text-shadow: none;
+    --app-menu-hover-background: rgba(255, 255, 255, 0.12);
+}
+
+.app-menu-container {
+    background-image: url('/sohome_theme/static/src/img/bg_home.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    position: relative !important;
+}
+
+// Apps e busca ficam por cima do overlay de texto
+.o-app-menu-list,
+.has-results ~ .o-app-menu-list {
+    position: relative;
+    z-index: 1;
+}
+
+[class*="searchbar"],
+[class*="SearchBar"] {
+    position: relative;
+    z-index: 1;
+}
+
+// ── Ícones dos apps ───────────────────────────────────────────
+.o-app-menu-item__icon {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+    border-radius: 14px !important;
+}
+
+.o-app-menu-item__name {
+    color: #dcd8d3 !important;
+    text-shadow: none !important;
+}
+
+// ── Overlay de texto (SOHOME / CONFORTO MUDA TUDO) ────────────
+.sh_text_overlay {
+    position: absolute !important;
+    bottom: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.sh_overlay_brand {
+    font-size: 38px;
+    font-weight: 300;
+    letter-spacing: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.sh_overlay_divider {
+    width: 56px;
+    height: 1px;
+    background: #997d5c;
+    margin: 10px auto;
+}
+
+.sh_overlay_tagline {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    color: #997d5c;
+    text-transform: uppercase;
 }
 
 // ── Botões primários ─────────────────────────────────────────
@@ -207,9 +115,7 @@
     border-color: #484c40 !important;
     color: #ffffff !important;
 
-    &:hover,
-    &:focus,
-    &:active {
+    &:hover, &:focus, &:active {
         background-color: #353830 !important;
         border-color: #353830 !important;
     }
@@ -222,49 +128,25 @@
 
     &:hover {
         background-color: #dcd8d3 !important;
-        border-color: #84867b !important;
     }
 }
 
 // ── Links ────────────────────────────────────────────────────
-a {
-    color: #484c40;
+a { color: #484c40; &:hover { color: #997d5c; } }
 
-    &:hover {
-        color: #997d5c;
-    }
-}
-
-// ── Menu de apps (home) ───────────────────────────────────────
-.o_home_menu {
-    background-color: #f5f1ec;
-}
+// ── Fundo principal ───────────────────────────────────────────
+.o_action_manager, .o_view_controller { background-color: #f5f1ec; }
+.o_form_view { background-color: #ffffff; }
+.o_home_menu { background-color: #f5f1ec; }
 
 .o_app {
     border-radius: 12px;
     transition: all 0.2s ease;
-
-    &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(73, 64, 56, 0.15);
-    }
-
-    .o_app_name {
-        color: #494038;
-    }
-}
-
-// ── Fundo principal ───────────────────────────────────────────
-.o_action_manager,
-.o_view_controller {
-    background-color: #f5f1ec;
+    &:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(73, 64, 56, 0.15); }
+    .o_app_name { color: #494038; }
 }
 
 // ── Formulários ──────────────────────────────────────────────
-.o_form_view {
-    background-color: #ffffff;
-}
-
 .o_form_view .o_form_sheet {
     border-radius: 8px;
     box-shadow: 0 1px 4px rgba(73, 64, 56, 0.08);
@@ -276,12 +158,7 @@ a {
 .form-select {
     border-color: #c5c0b3;
     border-radius: 6px;
-    background-color: #ffffff;
-
-    &:focus {
-        border-color: #484c40;
-        box-shadow: 0 0 0 2px rgba(72, 76, 64, 0.15);
-    }
+    &:focus { border-color: #484c40; box-shadow: 0 0 0 2px rgba(72, 76, 64, 0.15); }
 }
 
 // ── Listas ────────────────────────────────────────────────────
@@ -292,100 +169,33 @@ a {
     font-weight: 600;
 }
 
-.o_data_row:hover > td {
-    background-color: #f5f1ec !important;
-}
-
-.o_list_view .o_data_row.o_selected_row > td {
-    background-color: rgba(72, 76, 64, 0.07) !important;
-}
+.o_data_row:hover > td { background-color: #f5f1ec !important; }
 
 // ── Kanban ────────────────────────────────────────────────────
 .o_kanban_record {
     border-radius: 10px !important;
     border: 1px solid #dcd8d3 !important;
     background-color: #ffffff;
-    transition: box-shadow 0.2s ease;
-
-    &:hover {
-        box-shadow: 0 4px 14px rgba(73, 64, 56, 0.12);
-    }
+    &:hover { box-shadow: 0 4px 14px rgba(73, 64, 56, 0.12); }
 }
 
-.o_kanban_header .o_column_title {
-    color: #494038;
-    font-weight: 600;
-}
-
-// ── Badges e tags ─────────────────────────────────────────────
-.badge.bg-primary,
-.badge-primary {
-    background-color: #484c40 !important;
-}
-
-.badge.bg-secondary,
-.badge-secondary {
-    background-color: #997d5c !important;
-    color: #ffffff !important;
-}
-
-.o_tag {
-    border-radius: 4px;
-}
+// ── Badges ────────────────────────────────────────────────────
+.badge.bg-primary { background-color: #484c40 !important; }
+.badge.bg-secondary { background-color: #997d5c !important; color: #ffffff !important; }
 
 // ── Títulos ───────────────────────────────────────────────────
-h1, h2, h3, h4 {
-    color: #494038;
-}
+h1, h2, h3, h4 { color: #494038; }
 
-// ── Sidebar / breadcrumb ──────────────────────────────────────
-.o_breadcrumb .o_back_button,
-.o_breadcrumb .active {
-    color: #494038;
-}
+// ── Tabs ──────────────────────────────────────────────────────
+.nav-tabs .nav-link.active { color: #484c40; border-bottom-color: #484c40; font-weight: 600; }
+.nav-tabs .nav-link:hover { color: #997d5c; }
 
-.o_breadcrumb .o_back_button:hover {
-    color: #997d5c;
-}
-
-// ── Tabs / notebook ───────────────────────────────────────────
-.nav-tabs .nav-link.active {
-    color: #484c40;
-    border-bottom-color: #484c40;
-    font-weight: 600;
-}
-
-.nav-tabs .nav-link:hover {
-    color: #997d5c;
-}
-
-// ── Progress / status bars ────────────────────────────────────
+// ── Status bar ────────────────────────────────────────────────
 .o_statusbar_status button.o_arrow_button.btn-primary,
 .o_statusbar_status .o_arrow_button.active {
     background-color: #484c40 !important;
     border-color: #353830 !important;
 }
 
-// ── Separadores e divisores ───────────────────────────────────
-hr,
-.o_separator {
-    border-color: #dcd8d3;
-}
-
-// ── Sidebar de configuração ───────────────────────────────────
-.o_setting_box .o_setting_left_pane {
-    border-right-color: #dcd8d3;
-}
-
-// ── Alertas e callouts ────────────────────────────────────────
-.alert-info {
-    background-color: #ede8e0;
-    border-color: #c5c0b3;
-    color: #494038;
-}
-
-.alert-success {
-    background-color: rgba(72, 76, 64, 0.1);
-    border-color: #484c40;
-    color: #353830;
-}
+// ── Separadores ───────────────────────────────────────────────
+hr, .o_separator { border-color: #dcd8d3; }

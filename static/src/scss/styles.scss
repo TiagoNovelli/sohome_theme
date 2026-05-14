@@ -145,10 +145,75 @@
 // ── Links ────────────────────────────────────────────────────
 a { color: #484c40; &:hover { color: #997d5c; } }
 
-// ── Fundo principal ───────────────────────────────────────────
-.o_action_manager, .o_view_controller { background-color: #f5f1ec; }
-.o_form_view { background-color: #ffffff; }
-.o_home_menu { background-color: #f5f1ec; }
+// ── Fundo principal — efeito "papel sobre mesa" ───────────────
+// A "mesa" (fundo da página) fica em bege médio
+.o_action_manager,
+.o_view_controller,
+.o_home_menu {
+    background-color: #dcd8d3;
+}
+
+// Control panel (breadcrumb + botões de ação) acompanha o fundo
+.o_control_panel {
+    background-color: #dcd8d3 !important;
+    border-bottom: 1px solid #c5c0b3;
+}
+
+// Botões do control panel ficam sobre o fundo bege
+.o_control_panel .o_cp_buttons .btn-primary {
+    background-color: #484c40 !important;
+    border-color: #484c40 !important;
+}
+
+// O "papel" (formulário) fica branco com sombra suave
+.o_form_view {
+    background-color: #dcd8d3;
+}
+
+.o_form_sheet_bg {
+    background-color: #dcd8d3 !important;
+    padding: 16px !important;
+}
+
+.o_form_sheet {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 12px rgba(73, 64, 56, 0.10) !important;
+}
+
+// Notebook (abas) — fundo bege, conteúdo branco
+.o_notebook {
+    background-color: #dcd8d3;
+}
+
+.o_notebook .tab-content {
+    background-color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    padding: 16px;
+}
+
+.o_notebook .nav-tabs {
+    background-color: #dcd8d3;
+    border-bottom: 1px solid #c5c0b3;
+}
+
+// Lista — fundo bege, tabela branca
+.o_list_view {
+    background-color: #dcd8d3;
+}
+
+.o_list_view .o_list_table {
+    background-color: #ffffff;
+}
+
+.o_list_view tbody tr {
+    background-color: #ffffff;
+}
+
+// Kanban — fundo bege
+.o_kanban_view {
+    background-color: #dcd8d3 !important;
+}
 
 .o_app {
     border-radius: 12px;

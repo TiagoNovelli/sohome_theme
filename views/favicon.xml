@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Usa o ícone do PWA (web_pwa_customize) como favicon da aba do browser -->
+    <template id="sohome_favicon" inherit_id="web.layout" name="Sohome Favicon">
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <link type="image/png" rel="shortcut icon"
+                  href="/web_pwa_customize/icon144x144.png"/>
+        </xpath>
+    </template>
+</odoo>

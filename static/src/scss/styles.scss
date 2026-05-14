@@ -42,7 +42,7 @@
 }
 
 .app-menu-container {
-    background-image: url('/sohome_theme/static/src/img/bg_home.jpg') !important;
+    background-image: url('/sohome_theme/static/src/img/bg_home.jpg') !important; // arquivo: background.png copiado como bg_home.jpg
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -77,7 +77,7 @@
 // ── Overlay de texto (SOHOME / CONFORTO MUDA TUDO) ────────────
 .sh_text_overlay {
     position: absolute !important;
-    bottom: 72px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;

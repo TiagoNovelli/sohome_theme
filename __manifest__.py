@@ -6,7 +6,6 @@
     'depends': ['web', 'web_responsive', 'web_pwa_customize'],
     'data': [
         'views/favicon.xml',
-        'views/login.xml',
     ],
     'assets': {
         'web._assets_primary_variables': [

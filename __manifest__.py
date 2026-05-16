@@ -22,9 +22,6 @@
             'sohome_theme/static/src/scss/home_menu.scss',
             'sohome_theme/static/src/scss/animations.scss',
         ],
-        'web.assets_frontend': [
-            'sohome_theme/static/src/scss/login.scss',
-        ],
     },
     'installable': True,
     'license': 'LGPL-3',

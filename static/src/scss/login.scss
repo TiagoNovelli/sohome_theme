@@ -1,20 +1,27 @@
 // ================================================================
-// SOHOME THEME — Login Screen Premium
-// "Integração · Inteligência · Resultado"
+// SOHOME THEME — Login Screen
+// Baseado no Lovable: gradiente linear olive-deep→olive→steel,
+// card translúcido backdrop-blur-2xl, botão gold, slogan
 // ================================================================
 
-// ── Fundo da página de login ──────────────────────────────────────
+// Fundo: gradiente linear exato do Lovable
+// "from-[var(--olive-deep)] via-[var(--olive)] to-[var(--steel)]"
 body,
 .o_login_wrap,
 .o_login_main,
 .o_login_screen {
     min-height: 100vh;
     margin: 0;
-    background-color: #2a2c24;
+    background: linear-gradient(135deg,
+        #2a2c1e 0%,
+        #5f664d 55%,
+        #7c8d96 100%
+    ) !important;
+    // Sobreposição de brilhos radiais (como Lovable)
     background-image:
-        radial-gradient(ellipse 80% 70% at 20% 30%, rgba(95, 102, 77, 0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 80% 70%, rgba(178, 140, 95, 0.2) 0%, transparent 55%),
-        radial-gradient(ellipse 100% 100% at 50% 50%, rgba(42, 44, 36, 1) 40%, rgba(35, 33, 31, 1) 100%);
+        radial-gradient(ellipse 800px 400px at 20% 20%, rgba(178,140,95,.55), transparent),
+        radial-gradient(ellipse 600px 500px at 80% 70%, rgba(243,240,236,.3), transparent),
+        linear-gradient(135deg, #2a2c1e 0%, #5f664d 55%, #7c8d96 100%) !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,20 +29,18 @@ body,
     -webkit-font-smoothing: antialiased;
 }
 
-// Partículas / textura sutil (grade de pontos)
+// Textura sutil de pontos
 body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(212, 205, 196, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(243,240,236,.07) 1px, transparent 1px);
     background-size: 28px 28px;
     pointer-events: none;
     z-index: 0;
 }
 
-// ── Container do card de login ────────────────────────────────────
-.o_login_wrap,
-.o_login_screen {
+.o_login_wrap, .o_login_screen {
     position: relative;
     z-index: 1;
     width: 100%;
@@ -45,68 +50,68 @@ body::before {
     justify-content: center;
 }
 
-// ── Card principal de login ───────────────────────────────────────
+// ── Card central (Lovable: backdrop-blur-2xl, border white/15, bg white/10) ──
 .oe_login_form,
 .o_login_form,
 #login_form,
 form[action*="login"] {
-    background-color: rgba(250, 248, 245, 0.06) !important;
+    background-color: rgba(255,255,255,.1) !important;
     backdrop-filter: blur(24px) saturate(1.6) !important;
     -webkit-backdrop-filter: blur(24px) saturate(1.6) !important;
-    border: 1px solid rgba(212, 205, 196, 0.14) !important;
+    border: 1px solid rgba(255,255,255,.15) !important;
     border-radius: 20px !important;
-    box-shadow:
-        0 32px 64px rgba(0, 0, 0, 0.45),
-        0 2px 4px rgba(255, 255, 255, 0.04) inset !important;
-    padding: 48px 44px !important;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,.45) !important;
+    padding: 40px 40px !important;
     width: 100%;
     max-width: 420px !important;
     margin: 0 auto;
     position: relative;
+
+    // Logo ícone gold + "SOHOME" + slogan no topo
+    &::before {
+        content: 'SOHOME';
+        display: block;
+        text-align: center;
+        font-size: 28px;
+        font-family: Georgia, 'Times New Roman', ui-serif, serif;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        color: rgba(255,255,255,.95);
+        margin-bottom: 6px;
+    }
+
+    // Slogan logo abaixo do nome
+    &::after {
+        content: 'Integração · Inteligência · Resultado';
+        display: block;
+        text-align: center;
+        color: rgba(255,255,255,.55);
+        font-size: 10.5px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 400;
+        margin-top: 28px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,.1);
+    }
 }
 
-// ── Logo / cabeçalho ─────────────────────────────────────────────
-.o_login_wrap .o_login_header,
-.oe_login_form::before,
-.o_login_form::before {
-    display: block;
-    text-align: center;
-    margin-bottom: 36px;
-}
-
-// Branding SOHOME acima do formulário
-.o_login_wrap .container::before,
-.o_login_main::before {
-    content: 'SOHOME';
-    display: block;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 300;
-    letter-spacing: 0.45em;
-    color: rgba(212, 205, 196, 0.5);
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    position: relative;
-    z-index: 1;
-}
-
-// ── Logo da empresa (imagem) ──────────────────────────────────────
+// ── Ícone logo (imagem da empresa, se existir) ───────────────────
 .o_login_header img,
 .oe_login_form img.o_main_logo,
 .login-logo img {
-    max-height: 56px;
+    max-height: 52px;
     filter: brightness(0) invert(1);
-    opacity: 0.92;
+    opacity: 0.9;
     display: block;
-    margin: 0 auto 28px;
+    margin: 0 auto 24px;
 }
 
 // ── Título do card ────────────────────────────────────────────────
 .o_login_wrap h3,
 .oe_login_form h3,
-.o_login_form h3,
-.o_login_wrap .card-title {
-    color: rgba(250, 248, 245, 0.95) !important;
+.o_login_form h3 {
+    color: rgba(255,255,255,.95) !important;
     font-size: 22px !important;
     font-weight: 600 !important;
     text-align: center;
@@ -118,151 +123,109 @@ form[action*="login"] {
 .oe_login_form label,
 .o_login_form label,
 #login_form label {
-    color: rgba(212, 205, 196, 0.65) !important;
-    font-size: 11.5px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.07em !important;
+    color: rgba(255,255,255,.6) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
     margin-bottom: 6px !important;
     display: block;
 }
 
-// ── Inputs ───────────────────────────────────────────────────────
+// ── Inputs (Lovable: bg white/10, border white/15, text white) ────
 .oe_login_form input,
 .o_login_form input,
 #login_form input,
 .oe_login_form .form-control,
 .o_login_form .form-control {
-    background-color: rgba(255, 255, 255, 0.07) !important;
-    border: 1px solid rgba(212, 205, 196, 0.2) !important;
-    border-radius: 10px !important;
-    color: rgba(250, 248, 245, 0.95) !important;
+    background-color: rgba(255,255,255,.1) !important;
+    border: 1px solid rgba(255,255,255,.15) !important;
+    border-radius: 12px !important;
+    color: rgba(255,255,255,.95) !important;
     font-size: 14px !important;
-    padding: 12px 14px !important;
+    padding: 12px 16px !important;
     transition: all 0.2s ease !important;
     width: 100%;
 
-    &::placeholder { color: rgba(212, 205, 196, 0.35) !important; }
-
+    &::placeholder { color: rgba(255,255,255,.4) !important; }
     &:focus {
-        background-color: rgba(255, 255, 255, 0.1) !important;
-        border-color: rgba(178, 140, 95, 0.5) !important;
-        box-shadow: 0 0 0 3px rgba(178, 140, 95, 0.15) !important;
+        background-color: rgba(255,255,255,.14) !important;
+        border-color: rgba(178,140,95,.55) !important;
+        box-shadow: 0 0 0 3px rgba(178,140,95,.2) !important;
         outline: none !important;
     }
 }
 
-// ── Botão de entrar ───────────────────────────────────────────────
+// ── Botão de entrar (Lovable: gold bg, olive-deep text) ────────────
 .oe_login_form .btn-primary,
 .o_login_form .btn-primary,
 #login_form .btn-primary,
 button[type="submit"].btn-primary {
-    background-color: #5f664d !important;
-    border-color: #4a503b !important;
-    color: #ffffff !important;
-    border-radius: 10px !important;
+    background-color: #b28c5f !important;  // --gold
+    border-color: #9a7a4f !important;
+    color: #2a2c1e !important;             // --olive-deep text
+    border-radius: 12px !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     padding: 12px 24px !important;
     width: 100% !important;
     letter-spacing: 0.02em;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: all 0.22s cubic-bezier(0.4,0,0.2,1) !important;
     margin-top: 8px;
-    position: relative;
-    overflow: hidden;
 
     &:hover {
-        background-color: #4a503b !important;
-        box-shadow: 0 6px 20px rgba(95, 102, 77, 0.45) !important;
+        filter: brightness(1.08);
+        box-shadow: 0 6px 20px rgba(178,140,95,.4) !important;
         transform: translateY(-1px);
     }
-
-    &:active {
-        transform: translateY(0);
-        box-shadow: none !important;
-    }
+    &:active { transform: translateY(0); box-shadow: none !important; filter: none; }
 }
 
-// ── Links (esqueceu senha, etc.) ──────────────────────────────────
+// ── Links ─────────────────────────────────────────────────────────
 .o_login_forgot,
 .oe_login_form a,
 .o_login_form a,
 #login_form a {
-    color: rgba(178, 140, 95, 0.8) !important;
+    color: rgba(178,140,95,.8) !important;
     font-size: 12.5px !important;
     text-decoration: none !important;
     transition: color 0.2s ease !important;
-
-    &:hover { color: rgba(178, 140, 95, 1) !important; }
+    &:hover { color: rgba(178,140,95,1) !important; }
 }
 
-// ── Checkbox (lembrar) ────────────────────────────────────────────
+// ── Checkbox ─────────────────────────────────────────────────────
 .oe_login_form .form-check-input,
 .o_login_form .form-check-input {
-    border-color: rgba(212, 205, 196, 0.3) !important;
+    border-color: rgba(255,255,255,.3) !important;
     background-color: transparent !important;
-    width: 15px;
-    height: 15px;
-
-    &:checked {
-        background-color: #5f664d !important;
-        border-color: #5f664d !important;
-    }
+    &:checked { background-color: #b28c5f !important; border-color: #b28c5f !important; }
 }
 
 .oe_login_form .form-check-label,
 .o_login_form .form-check-label {
-    color: rgba(212, 205, 196, 0.65) !important;
+    color: rgba(255,255,255,.6) !important;
     font-size: 12.5px !important;
 }
 
-// ── Rodapé do card (slogan) ───────────────────────────────────────
-.o_login_wrap .o_login_footer,
-.oe_login_form + .text-center,
-.o_login_form ~ small {
-    text-align: center;
-    color: rgba(212, 205, 196, 0.3);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    margin-top: 28px;
-}
-
-// Slogan via pseudo-elemento no container
-.oe_login_form::after,
-.o_login_form::after {
-    content: 'Integração · Inteligência · Resultado';
-    display: block;
-    text-align: center;
-    color: rgba(212, 205, 196, 0.28);
-    font-size: 10.5px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(212, 205, 196, 0.1);
-    font-weight: 400;
-}
-
-// ── Animação de entrada ───────────────────────────────────────────
-.oe_login_form,
-.o_login_form {
-    animation: sh-login-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-@keyframes sh-login-in {
-    from { opacity: 0; transform: translateY(20px) scale(0.97); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-// ── Alerta de erro de login ────────────────────────────────────────
+// ── Alertas de erro ────────────────────────────────────────────────
 .o_login_wrap .alert,
 .oe_login_form .alert,
 .o_login_form .alert {
-    background-color: rgba(155, 90, 90, 0.15) !important;
-    border: 1px solid rgba(155, 90, 90, 0.3) !important;
-    border-radius: 10px !important;
-    color: rgba(255, 180, 180, 0.9) !important;
+    background-color: rgba(155,90,90,.18) !important;
+    border: 1px solid rgba(155,90,90,.35) !important;
+    border-radius: 12px !important;
+    color: rgba(255,180,180,.9) !important;
     font-size: 13px;
     padding: 10px 14px;
     margin-bottom: 16px;
+}
+
+// ── Animação de entrada ───────────────────────────────────────────
+.oe_login_form, .o_login_form {
+    animation: sh-login-in 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+@keyframes sh-login-in {
+    from { opacity: 0; transform: translateY(18px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }

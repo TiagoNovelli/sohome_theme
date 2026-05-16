@@ -1,121 +1,96 @@
 // ================================================================
-// SOHOME THEME — Base: tokens, tipografia, layout
+// SOHOME THEME — Base: design tokens Lovable, tipografia, layout
 // ================================================================
 
-// --- Design tokens (CSS custom properties) ---
 :root {
-    --sh-bg-primary:      #f3f0ec;
-    --sh-bg-secondary:    #ebe6df;
-    --sh-bg-card:         #faf8f5;
-    --sh-bg-white:        #ffffff;
-    --sh-text-primary:    #23211f;
-    --sh-text-secondary:  #5f5b56;
-    --sh-text-muted:      #a8a29a;
-    --sh-border:          #d4cdc4;
-    --sh-border-light:    #e8e3db;
+    --sh-olive:          #5f664d;
+    --sh-olive-deep:     #2a2c1e;
+    --sh-olive-light:    #7a8260;
+    --sh-gold:           #b28c5f;
+    --sh-gold-light:     #c9a87a;
+    --sh-steel:          #7c8d96;
+    --sh-steel-light:    #a3b2bb;
 
-    --sh-olive:           #5f664d;
-    --sh-olive-dark:      #4a503b;
-    --sh-olive-light:     #7a8260;
-    --sh-blue-gray:       #7c8d96;
-    --sh-blue-gray-light: #a3b2bb;
-    --sh-gold:            #b28c5f;
-    --sh-gold-light:      #c9a87a;
+    // Pipeline stage colors (Lovable exact)
+    --sh-stage-lead:      #5f664d;
+    --sh-stage-qualify:   #7c8d96;
+    --sh-stage-proposal:  #b28c5f;
+    --sh-stage-negotiate: #3f3d3a;
+    --sh-stage-won:       #4f7a4a;
 
-    --sh-sidebar-bg:      #2a2c24;
-    --sh-sidebar-hover:   rgba(255, 255, 255, 0.07);
-    --sh-sidebar-active:  #b28c5f;
+    // Superfícies
+    --sh-bg:      #f3f0ec;
+    --sh-surface: #ebe6df;
+    --sh-card:    #faf8f5;
+    --sh-white:   #ffffff;
 
-    --sh-shadow-xs:       0 1px 3px rgba(35, 33, 31, 0.06);
-    --sh-shadow-sm:       0 2px 8px rgba(35, 33, 31, 0.08);
-    --sh-shadow-md:       0 4px 16px rgba(35, 33, 31, 0.10);
-    --sh-shadow-lg:       0 8px 32px rgba(35, 33, 31, 0.14);
+    // Texto
+    --sh-ink:   #23211f;
+    --sh-text:  #5f5b56;
+    --sh-muted: #a8a29a;
 
-    --sh-radius-sm:       6px;
-    --sh-radius-md:       10px;
-    --sh-radius-lg:       16px;
-    --sh-radius-xl:       24px;
+    // Bordas
+    --sh-border:        #d4cdc4;
+    --sh-border-subtle: #e8e3db;
 
-    --sh-transition:      all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --sh-transition-slow: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    // Sombras (Lovable shadow-soft + shadow-elev)
+    --sh-shadow-soft: 0 1px 3px rgba(35,33,31,.06), 0 4px 12px rgba(35,33,31,.06);
+    --sh-shadow-elev: 0 2px 8px rgba(35,33,31,.08), 0 8px 24px rgba(35,33,31,.10);
+    --sh-shadow-deep: 0 8px 32px rgba(35,33,31,.14), 0 2px 6px rgba(35,33,31,.08);
+
+    // Raios
+    --sh-radius-sm:  6px;
+    --sh-radius-md:  10px;
+    --sh-radius-lg:  14px;
+    --sh-radius-xl:  18px;
+    --sh-radius-2xl: 24px;
+
+    --sh-transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// --- Tipografia ---
+// Tipografia sans
 * {
-    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+// Serif para números KPI — exatamente como o Lovable usa font-serif
+.o_stat_value,
+.o_dashboard .o_stat_value,
+.o_crm_summary_card .value {
+    font-family: Georgia, 'Times New Roman', ui-serif, serif !important;
+}
+
 body {
-    background-color: var(--sh-bg-primary);
-    color: var(--sh-text-primary);
+    background-color: var(--sh-bg);
+    color: var(--sh-ink);
     font-size: 14px;
     line-height: 1.6;
-    letter-spacing: 0.01em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--sh-text-primary);
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.3;
-}
-
-// --- Links ---
 a {
     color: var(--sh-olive);
     text-decoration: none;
     transition: var(--sh-transition);
-
-    &:hover {
-        color: var(--sh-gold);
-        text-decoration: none;
-    }
+    &:hover { color: var(--sh-gold); text-decoration: none; }
 }
 
-// --- Scrollbar premium ---
+::selection { background-color: rgba(95,102,77,.15); color: var(--sh-ink); }
+
 ::-webkit-scrollbar          { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track    { background: transparent; }
-::-webkit-scrollbar-thumb    {
-    background: var(--sh-border);
-    border-radius: 3px;
-    &:hover { background: var(--sh-text-muted); }
-}
+::-webkit-scrollbar-thumb    { background: var(--sh-border); border-radius: 3px;
+    &:hover { background: var(--sh-muted); } }
 
-// --- Seleção ---
-::selection {
-    background-color: rgba(95, 102, 77, 0.18);
-    color: var(--sh-text-primary);
-}
-
-// --- Layout principal ---
-.o_web_client {
-    background-color: var(--sh-bg-primary);
-}
-
+.o_web_client                { background-color: var(--sh-bg); }
 .o_action_manager,
-.o_view_controller {
-    background-color: var(--sh-bg-secondary);
-}
+.o_view_controller           { background-color: var(--sh-surface); }
 
-// --- Separadores ---
 hr, .o_separator { border-color: var(--sh-border); }
 
-// --- Badges ---
 .badge.bg-primary   { background-color: var(--sh-olive) !important; }
 .badge.bg-secondary { background-color: var(--sh-gold) !important; color: #fff !important; }
-.badge.bg-info      { background-color: var(--sh-blue-gray) !important; }
-.badge.bg-success   { background-color: var(--sh-olive) !important; }
-
-// --- Alerts ---
-.alert-info {
-    background-color: rgba(124, 141, 150, 0.1);
-    border-color: rgba(124, 141, 150, 0.25);
-    color: var(--sh-blue-gray);
-}
-.alert-success {
-    background-color: rgba(95, 102, 77, 0.1);
-    border-color: rgba(95, 102, 77, 0.25);
-    color: var(--sh-olive);
-}
+.badge.bg-info      { background-color: var(--sh-steel) !important; color: #fff !important; }
+.badge.bg-success   { background-color: var(--sh-stage-won) !important; color: #fff !important; }
+.badge.bg-warning   { background-color: var(--sh-gold) !important; color: #fff !important; }

@@ -1,21 +1,16 @@
 // ================================================================
-// SOHOME THEME — Animações e micro-interações premium
+// SOHOME THEME — Animações e micro-interações
+// Lovable: 150-250ms, easing suave, sem bounce
 // ================================================================
 
-// ── Transições globais suaves ─────────────────────────────────────
-.o_action_manager,
-.o_view_controller {
-    transition: opacity 0.15s ease;
-}
-
-// ── Fade-in para views ao carregar ───────────────────────────────
+// Fade-in para views (Lovable: "Movimento contido, 150-250ms")
 .o_form_view,
 .o_list_view,
 .o_kanban_view,
 .o_graph_view,
 .o_pivot,
 .o_dashboard {
-    animation: sh-fadein 0.22s ease-out forwards;
+    animation: sh-fadein 0.2s ease-out forwards;
 }
 
 @keyframes sh-fadein {
@@ -23,69 +18,65 @@
     to   { opacity: 1; transform: translateY(0); }
 }
 
-// ── Cards — hover lift ────────────────────────────────────────────
-.o_kanban_record,
+// Hover lift nos KPI cards
 .o_stat_info,
 .o_crm_summary_card {
     will-change: transform, box-shadow;
 }
 
-// ── Sidebar items — hover slide ───────────────────────────────────
-.o_menu_entry_link,
-.o_menu_sections .o_nav_entry {
-    position: relative;
-    overflow: hidden;
+// Notificações toast (animação lateral suave)
+.o_notification_manager .o_notification {
+    border-radius: var(--sh-radius-lg) !important;
+    border: none !important;
+    box-shadow: var(--sh-shadow-deep) !important;
+    animation: sh-slide-in 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: -100%;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
-        transition: left 0.5s ease;
+    &.o_notification_warning {
+        background-color: rgba(178,140,95,.95) !important;
+        color: #fff !important;
     }
-
-    &:hover::after { left: 100%; }
-}
-
-// ── Ripple em botões ──────────────────────────────────────────────
-.btn-primary,
-.btn-secondary {
-    position: relative;
-    overflow: hidden;
-
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
+    &.o_notification_success {
+        background-color: rgba(79,122,74,.95) !important;
+        color: #fff !important;
     }
-
-    &:active::after { opacity: 1; }
+    &.o_notification_danger,
+    &.o_notification_error {
+        background-color: rgba(155,90,90,.95) !important;
+        color: #fff !important;
+    }
+    &.o_notification_info {
+        background-color: rgba(124,141,150,.95) !important;
+        color: #fff !important;
+    }
 }
 
-// ── Spinner premium ───────────────────────────────────────────────
-.o_loading_indicator {
-    border-color: rgba(95, 102, 77, 0.2);
-    border-top-color: var(--sh-olive);
+@keyframes sh-slide-in {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
-.o_loading .o_loading_indicator,
-.o_field_many2one .o_loading {
-    border-top-color: var(--sh-olive);
+// Modal
+.modal.fade .modal-dialog {
+    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: scale(0.96) translateY(-8px) !important;
+}
+.modal.show .modal-dialog {
+    transform: scale(1) translateY(0) !important;
 }
 
-// ── Skeleton loading (placeholder) ───────────────────────────────
-.o_skeleton,
-[data-skeleton] {
+// Focus ring dourado (Lovable: focus-visible ring gold)
+*:focus-visible {
+    outline: 2px solid rgba(178,140,95,.5) !important;
+    outline-offset: 2px;
+    border-radius: var(--sh-radius-sm);
+}
+
+// Skeleton loading
+.o_skeleton, [data-skeleton] {
     background: linear-gradient(90deg,
-        var(--sh-bg-secondary) 25%,
-        var(--sh-border-light) 50%,
-        var(--sh-bg-secondary) 75%
+        var(--sh-surface) 25%,
+        var(--sh-border-subtle) 50%,
+        var(--sh-surface) 75%
     );
     background-size: 200% 100%;
     animation: sh-skeleton 1.6s ease-in-out infinite;
@@ -97,61 +88,7 @@
     100% { background-position: -200% 0; }
 }
 
-// ── Notificações toast ────────────────────────────────────────────
-.o_notification_manager .o_notification {
-    border-radius: var(--sh-radius-md) !important;
-    border: none !important;
-    box-shadow: var(--sh-shadow-lg) !important;
-    backdrop-filter: blur(8px);
-    animation: sh-slide-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-
-    &.o_notification_warning {
-        background-color: rgba(178, 140, 95, 0.95) !important;
-        color: #ffffff !important;
-        border-left: 3px solid var(--sh-gold) !important;
-    }
-
-    &.o_notification_success {
-        background-color: rgba(95, 102, 77, 0.95) !important;
-        color: #ffffff !important;
-        border-left: 3px solid var(--sh-olive) !important;
-    }
-
-    &.o_notification_danger,
-    &.o_notification_error {
-        background-color: rgba(155, 90, 90, 0.95) !important;
-        color: #ffffff !important;
-    }
-
-    &.o_notification_info {
-        background-color: rgba(124, 141, 150, 0.95) !important;
-        color: #ffffff !important;
-    }
-}
-
-@keyframes sh-slide-in {
-    from { opacity: 0; transform: translateX(24px) scale(0.96); }
-    to   { opacity: 1; transform: translateX(0) scale(1); }
-}
-
-// ── Transição de modal ────────────────────────────────────────────
-.modal.fade .modal-dialog {
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-    transform: scale(0.95) translateY(-10px) !important;
-}
-
-.modal.show .modal-dialog {
-    transform: scale(1) translateY(0) !important;
-}
-
-// ── Breadcrumb — transição suave ──────────────────────────────────
-.o_breadcrumb {
-    transition: var(--sh-transition);
-}
-
-// ── Focus ring premium ────────────────────────────────────────────
-*:focus-visible {
-    outline: 2px solid rgba(95, 102, 77, 0.45);
-    outline-offset: 2px;
-    border-radius: var(--sh-radius-sm);
+// Progress bars (transição suave nas barras de progresso dos cards)
+.progress-bar, .o_progress_bar {
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }

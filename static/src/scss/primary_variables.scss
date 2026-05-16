@@ -1,37 +1,36 @@
 // ================================================================
 // SOHOME THEME — Variáveis Primárias Odoo 18
-// Paleta premium: oliva · bege arquitetônico · dourado · azul acinzentado
+// Baseado no design system Lovable: oliva · aço · dourado · bege
 // ================================================================
 
 // --- Marca ---
-$o-brand-primary:           #5f664d;   // verde oliva — ações primárias
-$o-brand-secondary:         #b28c5f;   // dourado suave — acentos
+$o-brand-primary:           #5f664d;   // --olive
+$o-brand-secondary:         #b28c5f;   // --gold
 $o-brand-odoo:              #5f664d;
 
-// --- Escala tonal (warm neutrals premium) ---
-$o-gray-100:                #faf8f5;   // cards — quase branco quente
-$o-gray-200:                #f3f0ec;   // fundo principal
-$o-gray-300:                #ebe6df;   // fundo alternativo
-$o-gray-400:                #d4cdc4;   // bordas suaves
-$o-gray-500:                #a8a29a;   // placeholder / ícones atenuados
-$o-gray-600:                #7a7470;   // texto secundário leve
-$o-gray-700:                #5f5b56;   // texto corpo
-$o-gray-800:                #3d3a36;   // texto forte
-$o-gray-900:                #23211f;   // texto principal
+// --- Escala tonal warm neutral ---
+$o-gray-100:                #faf8f5;   // --card
+$o-gray-200:                #f3f0ec;   // --background
+$o-gray-300:                #ebe6df;   // --secondary / surface
+$o-gray-400:                #d4cdc4;   // --border
+$o-gray-500:                #a8a29a;   // placeholder
+$o-gray-600:                #7a7470;   // muted-foreground light
+$o-gray-700:                #5f5b56;   // --muted-foreground
+$o-gray-800:                #3d3a36;   // foreground dark
+$o-gray-900:                #23211f;   // --foreground / --ink
 
-// --- Fundo geral ---
+// --- Fundo ---
 $o-body-bg:                 #f3f0ec;
 $o-view-background-color:   #f3f0ec;
 
-// --- Navbar top ---
-$o-navbar-background:       #2a2c24;   // oliva escuro fosco
-$o-navbar-color:            #d4cdc4;   // bege claro sobre escuro
+// --- Navbar (usa olive-deep) ---
+$o-navbar-background:       #2a2c1e;   // --olive-deep
+$o-navbar-color:            #d4cdc4;
 
-// --- Destaque secundário ---
 $o-brand-lightsecondary:    #f3f0ec;
 
-// --- Estados semânticos (tons quentes alinhados à paleta) ---
-$success:                   #5f664d;   // oliva
-$info:                      #7c8d96;   // azul acinzentado
-$warning:                   #b28c5f;   // dourado
-$danger:                    #9b5a5a;   // vermelho apagado
+// --- Estados semânticos ---
+$success:                   #4f7a4a;   // verde fechado/ganho
+$info:                      #7c8d96;   // --steel
+$warning:                   #b28c5f;   // --gold
+$danger:                    #9b5a5a;

@@ -1,0 +1,112 @@
+// ================================================================
+// SOHOME THEME — Apps Menu (home menu)
+// ================================================================
+
+// ── Variáveis CSS do apps menu ───────────────────────────────────
+:root .o_grid_apps_menu {
+    --app-menu-text-color: #dcd8d3;
+    --app-menu-text-shadow: none;
+    --app-menu-hover-background: rgba(255, 255, 255, 0.10);
+}
+
+// ── Container principal ───────────────────────────────────────────
+.app-menu-container,
+.o_home_menu,
+.o_home_menu_background {
+    background-image: url('/sohome_theme/static/src/img/bg_home.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+// Overlay escuro sutil sobre a imagem
+.app-menu-container::before,
+.o_home_menu::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(35, 33, 31, 0.35);
+    pointer-events: none;
+    z-index: 0;
+}
+
+// Apps e busca ficam por cima do overlay
+.o-app-menu-list,
+.o_home_menu .o_apps,
+.has-results ~ .o-app-menu-list {
+    position: relative;
+    z-index: 1;
+}
+
+[class*="searchbar"],
+[class*="SearchBar"] {
+    position: relative;
+    z-index: 1;
+}
+
+// ── Ícones dos apps ───────────────────────────────────────────────
+.o-app-menu-item__icon {
+    background-color: var(--sh-bg-white) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.30) !important;
+    border-radius: 16px !important;
+    transition: var(--sh-transition-slow) !important;
+}
+
+.o-app-menu-item__name,
+.o_app .o_app_name {
+    color: rgba(250, 248, 245, 0.92) !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    letter-spacing: 0.01em !important;
+}
+
+// App item hover
+.o_app:hover .o-app-menu-item__icon,
+.o_home_menu .o_app:hover .o_app_icon {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+    transform: scale(1.05);
+}
+
+// ── Search bar no home menu ───────────────────────────────────────
+.o_home_menu .o_searchbar_input,
+.app-menu-container input[type="search"],
+.app-menu-container input[type="text"] {
+    background-color: rgba(250, 248, 245, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: rgba(250, 248, 245, 0.95) !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(12px);
+    padding: 10px 20px !important;
+    font-size: 14px;
+    transition: var(--sh-transition);
+
+    &::placeholder { color: rgba(250, 248, 245, 0.5) !important; }
+
+    &:focus {
+        background-color: rgba(250, 248, 245, 0.22) !important;
+        border-color: rgba(255, 255, 255, 0.35) !important;
+        box-shadow: 0 0 0 3px rgba(178, 140, 95, 0.2) !important;
+        outline: none;
+    }
+}
+
+// ── Resultado da busca ────────────────────────────────────────────
+.o_home_menu .o_search_result {
+    background-color: rgba(250, 248, 245, 0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--sh-radius-lg);
+    padding: 8px;
+
+    .o_search_result_item {
+        border-radius: var(--sh-radius-md);
+        padding: 8px 12px;
+        color: rgba(250, 248, 245, 0.9);
+        transition: var(--sh-transition);
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+    }
+}

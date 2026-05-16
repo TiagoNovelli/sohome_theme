@@ -1,0 +1,291 @@
+// ================================================================
+// SOHOME THEME — Kanban Views + CRM Pipeline Premium
+// ================================================================
+
+// ── Kanban — base ────────────────────────────────────────────────
+.o_kanban_view {
+    background-color: var(--sh-bg-secondary) !important;
+    padding: 16px !important;
+    gap: 14px;
+
+    // Botão "novo"
+    .o_column_quick_create,
+    .o_kanban_quick_add,
+    .btn-kanban-new {
+        color: var(--sh-olive);
+        border: 2px dashed var(--sh-border);
+        border-radius: var(--sh-radius-lg);
+        background-color: transparent;
+        transition: var(--sh-transition);
+        padding: 12px 20px;
+
+        &:hover {
+            border-color: var(--sh-olive);
+            background-color: rgba(95, 102, 77, 0.05);
+            color: var(--sh-olive-dark);
+        }
+    }
+}
+
+// ── Colunas / Estágios ───────────────────────────────────────────
+.o_kanban_group {
+    background-color: var(--sh-bg-card) !important;
+    border-radius: var(--sh-radius-lg) !important;
+    border: 1px solid var(--sh-border-light) !important;
+    box-shadow: var(--sh-shadow-xs);
+    min-width: 260px !important;
+    max-width: 280px !important;
+    transition: var(--sh-transition-slow);
+
+    &:hover { box-shadow: var(--sh-shadow-sm); }
+}
+
+// ── Header das colunas (estágios) ────────────────────────────────
+.o_kanban_header {
+    border-radius: var(--sh-radius-lg) var(--sh-radius-lg) 0 0;
+    overflow: hidden;
+}
+
+.o_kanban_header_title {
+    padding: 14px 16px 12px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .o_column_title { flex: 1; }
+
+    .o_kanban_config {
+        opacity: 0;
+        transition: var(--sh-transition);
+        color: inherit;
+        opacity: 0.5;
+    }
+
+    &:hover .o_kanban_config { opacity: 1; }
+}
+
+// Contador de cards por coluna
+.o_kanban_header .o_kanban_counter {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: inherit;
+}
+
+// ── Cores dos estágios CRM Pipeline (nth-child) ──────────────────
+// Lead → Oliva
+.o_kanban_group:nth-child(1) .o_kanban_header_title {
+    background: linear-gradient(135deg, #5f664d 0%, #4a503b 100%);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+// Qualificado → Azul acinzentado
+.o_kanban_group:nth-child(2) .o_kanban_header_title {
+    background: linear-gradient(135deg, #7c8d96 0%, #637078 100%);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+// Proposta → Dourado
+.o_kanban_group:nth-child(3) .o_kanban_header_title {
+    background: linear-gradient(135deg, #b28c5f 0%, #966f44 100%);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+// Negociação → Cinza profundo
+.o_kanban_group:nth-child(4) .o_kanban_header_title {
+    background: linear-gradient(135deg, #4a4643 0%, #3a3835 100%);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+// Fechado / Ganho → Verde premium
+.o_kanban_group:nth-child(5) .o_kanban_header_title,
+.o_kanban_group.o_column_folded:last-child .o_kanban_header_title {
+    background: linear-gradient(135deg, #3d5c3a 0%, #2d4428 100%);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+// Coluna "Perdido" (extra, se existir)
+.o_kanban_group:nth-child(6) .o_kanban_header_title {
+    background: linear-gradient(135deg, #7a4a4a 0%, #623c3c 100%);
+    color: rgba(255, 255, 255, 0.88);
+}
+
+// ── Cards Kanban ─────────────────────────────────────────────────
+.o_kanban_record {
+    border-radius: var(--sh-radius-md) !important;
+    border: 1px solid var(--sh-border-light) !important;
+    background-color: var(--sh-bg-white) !important;
+    box-shadow: var(--sh-shadow-xs) !important;
+    padding: 14px 16px !important;
+    margin: 0 8px 10px !important;
+    transition: var(--sh-transition) !important;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    // Linha de cor lateral (para identificação visual rápida)
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background-color: transparent;
+        border-radius: var(--sh-radius-md) 0 0 var(--sh-radius-md);
+        transition: var(--sh-transition);
+    }
+
+    &:hover {
+        box-shadow: var(--sh-shadow-md) !important;
+        border-color: var(--sh-border) !important;
+        transform: translateY(-2px);
+
+        &::before { background-color: var(--sh-olive); }
+    }
+
+    // Título do card
+    .o_kanban_record_title,
+    .oe_kanban_details h4,
+    strong {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--sh-text-primary);
+        line-height: 1.4;
+    }
+
+    // Subtítulo / empresa
+    .o_kanban_record_subtitle,
+    .oe_kanban_details .o_field_many2one a {
+        font-size: 12px;
+        color: var(--sh-text-secondary);
+        margin-top: 3px;
+    }
+
+    // Valor monetário em destaque
+    .oe_kanban_details .o_field_monetary,
+    .o_kanban_record .o_currency_value {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--sh-olive);
+        letter-spacing: -0.02em;
+    }
+
+    // Footer do card (avatar, tags, data)
+    .o_kanban_record_bottom,
+    .oe_kanban_bottom {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid var(--sh-border-light);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    // Avatar / responsável
+    .o_avatar, img.o_avatar {
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        border: 2px solid var(--sh-bg-white);
+        box-shadow: var(--sh-shadow-xs);
+    }
+
+    // Data
+    .o_kanban_record_date,
+    .oe_kanban_date {
+        font-size: 11px;
+        color: var(--sh-text-muted);
+        margin-left: auto;
+    }
+
+    // Priority stars
+    .o_priority .o_priority_star {
+        color: var(--sh-border);
+        font-size: 14px;
+
+        &.fa-star { color: var(--sh-gold); }
+    }
+}
+
+// ── CRM — card específico ─────────────────────────────────────────
+.o_crm_kanban .o_kanban_record,
+.o_kanban_view[class*="crm"] .o_kanban_record {
+    &::before { background-color: var(--sh-gold); }
+}
+
+// Cards na coluna "Ganho" têm borda verde
+.o_kanban_group:nth-child(5) .o_kanban_record,
+.o_kanban_group:last-child .o_kanban_record {
+    &::before { background-color: #3d5c3a; }
+}
+
+// ── App icons (loja / home menu) ─────────────────────────────────
+.o_module_info,
+.o_app_info,
+[class*="module"] .card,
+.o_kanban_view .o_kanban_record.o_module_info {
+    background-color: var(--sh-bg-white) !important;
+    border: 1px solid var(--sh-border) !important;
+    border-radius: var(--sh-radius-md) !important;
+}
+
+// ── Coluna dobrada (folded) ───────────────────────────────────────
+.o_kanban_group.o_column_folded {
+    width: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+    background-color: var(--sh-bg-secondary) !important;
+    border-color: var(--sh-border) !important;
+
+    .o_kanban_header_title {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        padding: 16px 12px !important;
+        font-size: 10.5px !important;
+        justify-content: center;
+    }
+}
+
+// ── Quick create form ─────────────────────────────────────────────
+.o_kanban_quick_create {
+    background-color: var(--sh-bg-white) !important;
+    border-radius: var(--sh-radius-md) !important;
+    border: 1px solid var(--sh-olive) !important;
+    box-shadow: var(--sh-shadow-md) !important;
+    padding: 14px !important;
+    margin: 4px 8px 10px !important;
+
+    .o_field_widget input {
+        font-weight: 600;
+        font-size: 14px;
+    }
+}
+
+// ── App menu icons ────────────────────────────────────────────────
+.o-app-menu-item__icon {
+    background-color: var(--sh-bg-white) !important;
+    box-shadow: var(--sh-shadow-md) !important;
+    border-radius: 14px !important;
+    transition: var(--sh-transition);
+}
+
+.o_app {
+    border-radius: var(--sh-radius-md);
+    transition: var(--sh-transition-slow);
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--sh-shadow-md);
+
+        .o-app-menu-item__icon { box-shadow: var(--sh-shadow-lg) !important; }
+    }
+
+    .o_app_name { color: var(--sh-text-primary); font-weight: 500; }
+}

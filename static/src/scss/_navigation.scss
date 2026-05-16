@@ -1,0 +1,242 @@
+// ================================================================
+// SOHOME THEME — Navegação: navbar top + sidebar/drawer
+// ================================================================
+
+// ── Navbar superior ──────────────────────────────────────────────
+.o_main_navbar {
+    background-color: var(--sh-sidebar-bg) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 1030 !important;
+    min-height: 48px;
+
+    // Logo / marca
+    .o_menu_brand {
+        color: #d4cdc4 !important;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        font-size: 13px;
+        opacity: 0.9;
+        transition: var(--sh-transition);
+
+        &:hover { opacity: 1; color: #ffffff !important; }
+    }
+
+    // Entradas de menu (nível 1)
+    .o_nav_entry,
+    .o_menu_sections > li > a,
+    .o_menu_sections > li > .o_nav_entry {
+        color: rgba(212, 205, 196, 0.85) !important;
+        font-size: 13px;
+        font-weight: 400;
+        border-radius: var(--sh-radius-sm);
+        transition: var(--sh-transition);
+        padding: 4px 10px;
+
+        &:hover {
+            color: #ffffff !important;
+            background-color: var(--sh-sidebar-hover) !important;
+        }
+    }
+
+    // Item ativo
+    .o_menu_sections > li.active > a,
+    .o_menu_sections > li > a.active,
+    .o_nav_entry.active {
+        color: var(--sh-gold) !important;
+        background-color: rgba(178, 140, 95, 0.12) !important;
+    }
+
+    // Systray sempre visível
+    .o_menu_systray {
+        display: flex !important;
+        position: relative;
+        z-index: 1031;
+        gap: 2px;
+    }
+
+    .o_menu_systray .o_nav_entry,
+    .o_menu_systray .o_user_menu,
+    .o_menu_systray button,
+    .o_menu_systray a,
+    .o_menu_systray i {
+        color: rgba(212, 205, 196, 0.8) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transition: var(--sh-transition);
+
+        &:hover { color: #ffffff !important; }
+    }
+
+    // Divisor
+    .o_navbar_separator,
+    .separator { border-color: rgba(255, 255, 255, 0.08); }
+}
+
+// Systray visível quando apps menu aberto
+.o_apps_menu_opened .o_main_navbar .o_menu_systray {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+// ── Dropdown do navbar ────────────────────────────────────────────
+.o_main_navbar .dropdown-menu,
+.o_main_navbar .o_dropdown {
+    background-color: var(--sh-sidebar-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: var(--sh-radius-md) !important;
+    box-shadow: var(--sh-shadow-lg) !important;
+    padding: 6px !important;
+
+    .dropdown-item {
+        color: rgba(212, 205, 196, 0.85) !important;
+        border-radius: var(--sh-radius-sm);
+        font-size: 13px;
+        padding: 7px 12px;
+
+        &:hover {
+            background-color: var(--sh-sidebar-hover) !important;
+            color: #ffffff !important;
+        }
+
+        &.active, &:active {
+            background-color: rgba(178, 140, 95, 0.15) !important;
+            color: var(--sh-gold) !important;
+        }
+    }
+
+    .dropdown-divider { border-color: rgba(255, 255, 255, 0.08); }
+}
+
+// ── Sidebar / Menu secundário (web_responsive) ───────────────────
+// Suporte a drawer do OCA web_responsive
+
+.o_menu_drawer,
+.o_main_navbar .o_menu_drawer {
+    background-color: var(--sh-sidebar-bg) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+    width: 240px !important;
+
+    // Cabeçalho do drawer
+    .o_drawer_header,
+    .o_menu_brand {
+        padding: 20px 16px 12px;
+        color: rgba(212, 205, 196, 0.7) !important;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+}
+
+// Itens do menu lateral (padrão web_responsive)
+.o_menu_entry_link,
+.o_menu_entry > a,
+.o_sub_menu_item,
+.o_menu_drawer .o_menu_sections a,
+.o_menu_sections .o_nav_entry {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px !important;
+    color: rgba(212, 205, 196, 0.75) !important;
+    font-size: 13.5px;
+    font-weight: 400;
+    border-radius: var(--sh-radius-sm);
+    margin: 1px 8px;
+    transition: var(--sh-transition);
+    border: none !important;
+
+    i, .fa, .oi {
+        font-size: 15px;
+        width: 20px;
+        text-align: center;
+        opacity: 0.7;
+        transition: var(--sh-transition);
+    }
+
+    &:hover {
+        background-color: var(--sh-sidebar-hover) !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+
+        i, .fa, .oi { opacity: 1; }
+    }
+
+    &.active,
+    &.o_active {
+        background-color: rgba(178, 140, 95, 0.15) !important;
+        color: var(--sh-gold) !important;
+        font-weight: 500;
+
+        i, .fa, .oi {
+            color: var(--sh-gold) !important;
+            opacity: 1;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 60%;
+            background-color: var(--sh-gold);
+            border-radius: 0 2px 2px 0;
+        }
+    }
+}
+
+// Itens do menu lateral com posição relativa para o indicador ativo
+.o_menu_entry_link,
+.o_menu_drawer .o_menu_sections a {
+    position: relative;
+}
+
+// Categorias / grupos do menu lateral
+.o_menu_section_group,
+.o_menu_sections .o_menu_group > span,
+.o_app_menu_category {
+    padding: 14px 16px 4px !important;
+    color: rgba(212, 205, 196, 0.4) !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+}
+
+// Contador de notificações no menu
+.o_menu_entry .badge,
+.o_menu_sections .badge {
+    background-color: var(--sh-gold) !important;
+    color: #ffffff !important;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+// ── Control Panel ────────────────────────────────────────────────
+.o_control_panel {
+    background-color: var(--sh-bg-secondary) !important;
+    border-bottom: 1px solid var(--sh-border);
+    padding: 10px 20px;
+    min-height: 56px;
+    align-items: center;
+
+    .o_breadcrumb .breadcrumb-item {
+        color: var(--sh-text-secondary);
+        font-size: 13px;
+
+        a { color: var(--sh-olive); font-weight: 500; }
+        &.active { color: var(--sh-text-primary); font-weight: 600; }
+    }
+
+    .o_breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        color: var(--sh-text-muted);
+    }
+}

@@ -1,70 +1,51 @@
 // ================================================================
 // SOHOME THEME — Apps Menu (home menu)
+// Fundo bege claro da calculadora, sem imagem, texto escuro
 // ================================================================
 
-// ── Variáveis CSS do apps menu ───────────────────────────────────
+// ── Variáveis CSS do apps menu ────────────────────────────────────
 :root .o_grid_apps_menu {
-    --app-menu-text-color: #dcd8d3;
-    --app-menu-text-shadow: none;
-    --app-menu-hover-background: rgba(255, 255, 255, 0.10);
+    --app-menu-text-color:       #00263A;
+    --app-menu-text-shadow:      none;
+    --app-menu-hover-background: rgba(0, 38, 58, 0.06);
 }
 
-// ── Container principal ───────────────────────────────────────────
+// ── Container principal — fundo bege claro ────────────────────────
 .app-menu-container,
 .o_home_menu,
 .o_home_menu_background {
-    background-image: url('/sohome_theme/static/src/img/bg_home.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
+    background-image: none !important;
+    background-color: #f5f3ef !important;  // bege claro da calculadora
+    background-size: unset !important;
+    background-position: unset !important;
 }
 
-// Overlay escuro sutil sobre a imagem
+// Remove overlay escuro (não faz sentido sobre fundo claro)
 .app-menu-container::before,
-.o_home_menu::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(35, 33, 31, 0.35);
-    pointer-events: none;
-    z-index: 0;
-}
-
-// Apps e busca ficam por cima do overlay
-.o-app-menu-list,
-.o_home_menu .o_apps,
-.has-results ~ .o-app-menu-list {
-    position: relative;
-    z-index: 1;
-}
-
-[class*="searchbar"],
-[class*="SearchBar"] {
-    position: relative;
-    z-index: 1;
-}
+.o_home_menu::before { display: none !important; }
 
 // ── Ícones dos apps ───────────────────────────────────────────────
 .o-app-menu-item__icon {
-    background-color: var(--sh-bg-white) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.30) !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 38, 58, 0.12), 0 1px 3px rgba(0, 38, 58, 0.08) !important;
     border-radius: 16px !important;
-    transition: var(--sh-transition-slow) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
+// Nomes dos apps — texto azul-marinho (legível sobre bege)
 .o-app-menu-item__name,
 .o_app .o_app_name {
-    color: rgba(250, 248, 245, 0.92) !important;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+    color: #00263A !important;
+    text-shadow: none !important;
     font-weight: 500 !important;
     font-size: 12px !important;
     letter-spacing: 0.01em !important;
 }
 
-// App item hover
+// Hover nos apps
 .o_app:hover .o-app-menu-item__icon,
 .o_home_menu .o_app:hover .o_app_icon {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 6px 20px rgba(0, 38, 58, 0.18), 0 2px 6px rgba(0, 38, 58, 0.12) !important;
     transform: scale(1.05);
 }
 
@@ -72,41 +53,51 @@
 .o_home_menu .o_searchbar_input,
 .app-menu-container input[type="search"],
 .app-menu-container input[type="text"] {
-    background-color: rgba(250, 248, 245, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    color: rgba(250, 248, 245, 0.95) !important;
+    background-color: #ffffff !important;
+    border: 1px solid #d4cdc4 !important;
+    color: #00263A !important;
     border-radius: 12px !important;
-    backdrop-filter: blur(12px);
+    backdrop-filter: none;
     padding: 10px 20px !important;
     font-size: 14px;
-    transition: var(--sh-transition);
+    box-shadow: 0 1px 4px rgba(0, 38, 58, 0.06) !important;
+    transition: all 0.2s ease;
 
-    &::placeholder { color: rgba(250, 248, 245, 0.5) !important; }
+    &::placeholder { color: #a8a29a !important; }
 
     &:focus {
-        background-color: rgba(250, 248, 245, 0.22) !important;
-        border-color: rgba(255, 255, 255, 0.35) !important;
-        box-shadow: 0 0 0 3px rgba(178, 140, 95, 0.2) !important;
+        background-color: #ffffff !important;
+        border-color: #00263A !important;
+        box-shadow: 0 0 0 3px rgba(0, 38, 58, 0.10) !important;
         outline: none;
     }
 }
 
 // ── Resultado da busca ────────────────────────────────────────────
 .o_home_menu .o_search_result {
-    background-color: rgba(250, 248, 245, 0.12);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: var(--sh-radius-lg);
-    padding: 8px;
+    background-color: #ffffff;
+    border: 1px solid #d4cdc4;
+    border-radius: var(--sh-radius-lg, 14px);
+    box-shadow: 0 4px 16px rgba(0, 38, 58, 0.10);
 
     .o_search_result_item {
-        border-radius: var(--sh-radius-md);
+        border-radius: var(--sh-radius-md, 10px);
         padding: 8px 12px;
-        color: rgba(250, 248, 245, 0.9);
-        transition: var(--sh-transition);
+        color: #00263A;
+        transition: background-color 0.15s ease;
 
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.12);
-        }
+        &:hover { background-color: #f5f3ef; }
+    }
+}
+
+// ── App item hover geral ──────────────────────────────────────────
+.o_app {
+    border-radius: var(--sh-radius-md, 10px);
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 8px 4px;
+
+    &:hover {
+        background-color: rgba(0, 38, 58, 0.05);
+        transform: translateY(-3px);
     }
 }

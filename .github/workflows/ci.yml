@@ -1,0 +1,87 @@
+name: CI/CD sohome_theme
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ── 1. VALIDAÇÃO — XML e manifesto ────────────────────────────────────────
+  validate:
+    name: "Validar XML e manifesto"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar xmllint
+        run: sudo apt-get install -y --quiet libxml2-utils
+
+      - name: Verificar sintaxe do __manifest__.py
+        run: python3 -m py_compile __manifest__.py
+
+      - name: Verificar well-formedness dos XMLs
+        run: |
+          find . -name "*.xml" -not -path "./.git/*" -not -path "./.github/*" \
+            | xargs xmllint --noout
+          echo "Todos os XMLs são válidos."
+
+  # ── 2. DEPLOY STAGING — push na dev ──────────────────────────────────────
+  deploy-staging:
+    name: "Deploy → Staging"
+    needs: [validate]
+    runs-on: self-hosted
+    if: github.ref == 'refs/heads/dev'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sincronizar código com addons do staging
+        run: |
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='.claude' \
+            --exclude='.github' \
+            "$GITHUB_WORKSPACE/" \
+            /home/github-runner/staging-addons/sohome_theme/
+
+      - name: Atualizar módulo no container staging
+        run: |
+          docker exec odoo18-staging odoo \
+            -c /etc/odoo/odoo.conf \
+            -d sohome_test \
+            -u sohome_theme \
+            --stop-after-init
+
+      - name: Reiniciar staging
+        run: |
+          docker restart odoo18-staging
+          echo "Staging atualizado: $(date '+%Y-%m-%d %H:%M:%S')"
+
+  # ── 3. DEPLOY PRODUÇÃO — push na main ────────────────────────────────────
+  deploy-production:
+    name: "Deploy → Produção"
+    needs: [validate]
+    runs-on: self-hosted
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Sincronizar código com addons de produção
+        run: |
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='.claude' \
+            --exclude='.github' \
+            /home/github-runner/staging-addons/sohome_theme/ \
+            /var/lib/docker/volumes/sohome/odoo18/custom-addons/sohome_theme/
+
+      - name: Atualizar módulo em produção
+        run: |
+          docker exec odoo18 odoo \
+            -c /etc/odoo/odoo.conf \
+            -d sohome_18 \
+            -u sohome_theme \
+            --stop-after-init
+
+      - name: Reiniciar produção
+        run: |
+          docker restart odoo18
+          echo "Produção atualizada: $(date '+%Y-%m-%d %H:%M:%S')"

@@ -1,26 +1,16 @@
 {
     'name': 'Sohome Theme',
-    'version': '18.1.0',
+    'version': '18.1.1',
     'category': 'Themes/Backend',
-    'summary': 'Tema premium corporativo — oliva · bege · dourado',
-    'depends': ['web', 'web_responsive', 'web_pwa_customize'],
+    'summary': 'Paleta de cores SOHOME sobre o tema padrão do Odoo 18',
+    'depends': ['web'],
     'data': [
         'views/favicon.xml',
     ],
     'assets': {
+        # Injeta as variáveis ANTES das do Odoo — propaga para todos os componentes
         'web._assets_primary_variables': [
             ('prepend', 'sohome_theme/static/src/scss/primary_variables.scss'),
-        ],
-        # Cada arquivo listado individualmente — @import é proibido no Odoo
-        'web.assets_backend': [
-            'sohome_theme/static/src/scss/base.scss',
-            'sohome_theme/static/src/scss/navigation.scss',
-            'sohome_theme/static/src/scss/components.scss',
-            'sohome_theme/static/src/scss/tables.scss',
-            'sohome_theme/static/src/scss/kanban.scss',
-            'sohome_theme/static/src/scss/dashboard.scss',
-            'sohome_theme/static/src/scss/home_menu.scss',
-            'sohome_theme/static/src/scss/animations.scss',
         ],
     },
     'installable': True,

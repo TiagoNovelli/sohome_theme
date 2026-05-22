@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        SOHOME THEME — Customização da página de login
+        Adiciona meta viewport e classe de tema ao body.
+        Compatível com Odoo 18 (web.login_layout).
+    -->
+    <template id="sohome_login_layout" inherit_id="web.login_layout"
+              name="Sohome Login Layout" priority="10">
+
+        <!-- Adicionar classe ao body para CSS scoping -->
+        <xpath expr="//body" position="attributes">
+            <attribute name="class" add="o_sohome_login" separator=" "/>
+        </xpath>
+
+        <!-- Meta color-scheme para navegadores suportarem tema escuro -->
+        <xpath expr="//head" position="inside">
+            <meta name="color-scheme" content="dark"/>
+            <meta name="theme-color" content="#2a2c24"/>
+        </xpath>
+    </template>
+</odoo>

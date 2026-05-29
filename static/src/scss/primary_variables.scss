@@ -15,13 +15,13 @@ $o-navbar-background:     #00263A;   // azul-marinho
 $o-navbar-color:          #f0ece4;   // bege claro sobre azul
 
 // --- Fundo geral ---
-$o-body-bg:               #f5f3ef;   // bege claro da calculadora
-$o-view-background-color: #f5f3ef;
+$o-body-bg:               #ede5d5;   // bege mais pronunciado
+$o-view-background-color: #ede5d5;
 
 // --- Escala de cinza → tons quentes (bege/warm) ---
 // Odoo usa essa escala em cards, bordas, inputs, separadores, etc.
 $o-gray-100:              #faf8f5;   // superfície mais clara (cards)
-$o-gray-200:              #f5f3ef;   // fundo principal
+$o-gray-200:              #ede5d5;   // fundo principal
 $o-gray-300:              #ebe6df;   // bordas suaves
 $o-gray-400:              #d4cdc4;   // bordas normais
 $o-gray-500:              #a8a29a;   // placeholder / ícones
@@ -31,7 +31,7 @@ $o-gray-800:              #3d3a36;   // texto forte
 $o-gray-900:              #23211f;   // texto principal
 
 // --- Destaque secundário (hover de menus, badges light) ---
-$o-brand-lightsecondary:  #f5f3ef;
+$o-brand-lightsecondary:  #ede5d5;
 
 // --- Estados semânticos ---
 $success: #4f7a4a;
